@@ -1,0 +1,343 @@
+{
+  "worksheets": [
+    {
+      "id": "ws_001",
+      "title": "Number Practice",
+      "title_hindi": "संख्या अभ्यास (1 से 5)",
+      "category": "numeracy",
+      "instructions_hindi": "खाली स्थान में सही संख्या लिखो।",
+      "questions": [
+        {
+          "id": "ws_001_q1",
+          "type": "fill_blank",
+          "question": "1, 2, __, 4, 5",
+          "options": ["3", "6", "0"],
+          "answer": "3",
+          "hint": "दो के बाद क्या आता है?"
+        },
+        {
+          "id": "ws_001_q2",
+          "type": "fill_blank",
+          "question": "__, 2, 3, 4, 5",
+          "options": ["1", "0", "6"],
+          "answer": "1",
+          "hint": "गिनती कहाँ से शुरू होती है?"
+        },
+        {
+          "id": "ws_001_q3",
+          "type": "multiple_choice",
+          "question": "संख्या 4 के ठीक बाद कौन सी संख्या आती है?",
+          "options": ["3", "5", "6", "2"],
+          "answer": "5",
+          "hint": "चार के आगे गिनो।"
+        }
+      ]
+    },
+    {
+      "id": "ws_002",
+      "title": "Counting Objects",
+      "title_hindi": "गिनती और मात्रा",
+      "category": "counting",
+      "instructions_hindi": "चित्रों को गिनकर सही संख्या चुनो।",
+      "questions": [
+        {
+          "id": "ws_002_q1",
+          "type": "multiple_choice",
+          "question": "कितने सेब हैं? 🍎 🍎 🍎",
+          "options": ["2", "3", "4", "5"],
+          "answer": "3",
+          "hint": "एक-एक करके सेब गिनो।"
+        },
+        {
+          "id": "ws_002_q2",
+          "type": "multiple_choice",
+          "question": "कितनी गेंदें हैं? ⚽ ⚽",
+          "options": ["1", "2", "3", "4"],
+          "answer": "2",
+          "hint": "एक, दो..."
+        },
+        {
+          "id": "ws_002_q3",
+          "type": "fill_blank",
+          "question": "कितने सितारे हैं? ⭐ ⭐ ⭐ ⭐",
+          "options": ["3", "4", "5"],
+          "answer": "4",
+          "hint": "कुल चार सितारे हैं।"
+        }
+      ]
+    },
+    {
+      "id": "ws_003",
+      "title": "Alphabet & Letters",
+      "title_hindi": "वर्णमाला पहचान",
+      "category": "literacy",
+      "instructions_hindi": "सही अक्षर की पहचान करो।",
+      "questions": [
+        {
+          "id": "ws_003_q1",
+          "type": "multiple_choice",
+          "question": "'क' से क्या होता है?",
+          "options": ["कमल", "आम", "नल", "घर"],
+          "answer": "कमल",
+          "hint": "क... कमल।"
+        },
+        {
+          "id": "ws_003_q2",
+          "type": "true_false",
+          "question": "'अ' से 'अनार' होता है। क्या यह सही है?",
+          "options": ["सही", "गलत"],
+          "answer": "सही",
+          "hint": "अ से अनार।"
+        },
+        {
+          "id": "ws_003_q3",
+          "type": "multiple_choice",
+          "question": "'म' से क्या होता है?",
+          "options": ["मछली", "कलम", "पेड़", "सूरज"],
+          "answer": "मछली",
+          "hint": "म... मछली।"
+        }
+      ]
+    },
+    {
+      "id": "ws_004",
+      "title": "Word Matching",
+      "title_hindi": "शब्द और चित्र मिलान",
+      "category": "matching",
+      "instructions_hindi": "चित्र देखकर सही शब्द चुनो।",
+      "questions": [
+        {
+          "id": "ws_004_q1",
+          "type": "multiple_choice",
+          "question": "इस चित्र का नाम क्या है? 🌳",
+          "options": ["पेड़", "किताब", "मकान", "नदी"],
+          "answer": "पेड़",
+          "hint": "हरा-भरा पेड़।"
+        },
+        {
+          "id": "ws_004_q2",
+          "type": "multiple_choice",
+          "question": "इस चित्र का नाम क्या है? ☀️",
+          "options": ["सूरज", "चांद", "तारा", "बादल"],
+          "answer": "सूरज",
+          "hint": "दिन में चमकने वाला सूरज।"
+        },
+        {
+          "id": "ws_004_q3",
+          "type": "true_false",
+          "question": "चिड़िया 🐦 आकाश में उड़ती है।",
+          "options": ["सही", "गलत"],
+          "answer": "सही",
+          "hint": "चिड़िया के पंख होते हैं।"
+        }
+      ]
+    },
+    {
+      "id": "ws_005",
+      "title": "Classroom Vocabulary",
+      "title_hindi": "कक्षा की शब्दावली",
+      "category": "vocabulary",
+      "instructions_hindi": "कक्षा की वस्तुओं के सही उपयोग को पहचानो।",
+      "questions": [
+        {
+          "id": "ws_005_q1",
+          "type": "multiple_choice",
+          "question": "लिखने के लिए हम किसका उपयोग करते हैं?",
+          "options": ["कलम / पेंसिल", "किताब", "पानी की बोतल", "पंखा"],
+          "answer": "कलम / पेंसिल",
+          "hint": "जिससे कॉपी में लिखते हैं।"
+        },
+        {
+          "id": "ws_005_q2",
+          "type": "multiple_choice",
+          "question": "पढ़ने के लिए हम क्या खोलते हैं?",
+          "options": ["किताब (पुथी)", "ताला", "खिड़की", "जूता"],
+          "answer": "किताब (पुथी)",
+          "hint": "जिसमें पाठ होते हैं।"
+        },
+        {
+          "id": "ws_005_q3",
+          "type": "true_false",
+          "question": "कक्षा में शिक्षक की बात ध्यान से सुननी चाहिए।",
+          "options": ["सही", "गलत"],
+          "answer": "सही",
+          "hint": "अच्छे बच्चे ध्यान से सुनते हैं।"
+        }
+      ]
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc_001",
+      "category": "numbers",
+      "hindi": "एक",
+      "santhali_devanagari": "मित्",
+      "santhali_olchiki": "ᱢᱤᱫ",
+      "phonetic": "Mit'",
+      "audio_file": "santhali_fc_001.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_002",
+      "category": "numbers",
+      "hindi": "दो",
+      "santhali_devanagari": "बार",
+      "santhali_olchiki": "ᱵᱟᱨ",
+      "phonetic": "Bar",
+      "audio_file": "santhali_fc_002.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_003",
+      "category": "numbers",
+      "hindi": "तीन",
+      "santhali_devanagari": "पे",
+      "santhali_olchiki": "ᱯᱮ",
+      "phonetic": "Pe",
+      "audio_file": "santhali_fc_003.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_004",
+      "category": "numbers",
+      "hindi": "चार",
+      "santhali_devanagari": "पुने",
+      "santhali_olchiki": "ᱯᱩᱱ",
+      "phonetic": "Pun",
+      "audio_file": "santhali_fc_004.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_005",
+      "category": "numbers",
+      "hindi": "पाँच",
+      "santhali_devanagari": "मोड़े",
+      "santhali_olchiki": "ᱢᱚᱬᱮ",
+      "phonetic": "Mone",
+      "audio_file": "santhali_fc_005.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_006",
+      "category": "classroom",
+      "hindi": "किताब",
+      "santhali_devanagari": "पुथी",
+      "santhali_olchiki": "ᱯᱩᱛᱷᱤ",
+      "phonetic": "Puthi",
+      "audio_file": "santhali_fc_006.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_007",
+      "category": "classroom",
+      "hindi": "कलम",
+      "santhali_devanagari": "कलम",
+      "santhali_olchiki": "ᱠᱚᱞᱚᱢ",
+      "phonetic": "Kalom",
+      "audio_file": "santhali_fc_007.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_008",
+      "category": "classroom",
+      "hindi": "कॉपी",
+      "santhali_devanagari": "खाथा",
+      "santhali_olchiki": "ᱠᱷᱟᱛᱟ",
+      "phonetic": "Khata",
+      "audio_file": "santhali_fc_008.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_009",
+      "category": "classroom",
+      "hindi": "विद्यालय / स्कूल",
+      "santhali_devanagari": "आशड़ा",
+      "santhali_olchiki": "ᱟᱥᱲᱟ",
+      "phonetic": "Asra",
+      "audio_file": "santhali_fc_009.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_010",
+      "category": "animals",
+      "hindi": "हाथी",
+      "santhali_devanagari": "हाती",
+      "santhali_olchiki": "ᱦᱟᱹᱛᱤ",
+      "phonetic": "Haati",
+      "audio_file": "santhali_fc_010.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_011",
+      "category": "animals",
+      "hindi": "गाय",
+      "santhali_devanagari": "गाई",
+      "santhali_olchiki": "ᱜᱟᱹᱭ",
+      "phonetic": "Gayi",
+      "audio_file": "santhali_fc_011.wav",
+      "translation_status": "demo_pending_validation"
+    },
+    {
+      "id": "fc_012",
+      "category": "nature",
+      "hindi": "पानी",
+      "santhali_devanagari": "दाः",
+      "santhali_olchiki": "ᱫᱟᱜ",
+      "phonetic": "Dak'",
+      "audio_file": "santhali_fc_012.wav",
+      "translation_status": "demo_pending_validation"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act_001",
+      "title": "Count the Objects",
+      "title_hindi": "वस्तुओं को गिनो",
+      "category": "numeracy",
+      "instruction_hindi": "गिनकर सही संख्या चुनो।",
+      "question": "🍎 🍎 🍎",
+      "options": ["2", "3", "4"],
+      "answer": "3"
+    },
+    {
+      "id": "act_002",
+      "title": "Match Quantity",
+      "title_hindi": "तारे गिनो",
+      "category": "numeracy",
+      "instruction_hindi": "तारे गिनकर सही उत्तर चुनो।",
+      "question": "⭐ ⭐ ⭐ ⭐ ⭐",
+      "options": ["4", "5", "6"],
+      "answer": "5"
+    },
+    {
+      "id": "act_003",
+      "title": "Identify Letter",
+      "title_hindi": "पहला अक्षर पहचानो",
+      "category": "literacy",
+      "instruction_hindi": "'आम' का पहला अक्षर चुनो।",
+      "question": "🥭 आम",
+      "options": ["अ", "आ", "इ"],
+      "answer": "आ"
+    },
+    {
+      "id": "act_004",
+      "title": "Choose Correct Word",
+      "title_hindi": "सही शब्द चुनो",
+      "category": "vocabulary",
+      "instruction_hindi": "चित्र देखकर सही वस्तु चुनो।",
+      "question": "📖",
+      "options": ["किताब (पुथी)", "गेंद", "कलम"],
+      "answer": "किताब (पुथी)"
+    },
+    {
+      "id": "act_005",
+      "title": "Number Sequence",
+      "title_hindi": "क्रम में संख्या",
+      "category": "numeracy",
+      "instruction_hindi": "संख्या 3 के ठीक बाद क्या आता है?",
+      "question": "1, 2, 3, [ ? ]",
+      "options": ["2", "4", "5"],
+      "answer": "4"
+    }
+  ]
+}

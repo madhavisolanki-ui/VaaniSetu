@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VaaniSetu | AI-Powered Vernacular Pedagogy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Ol+Chiki:wght@500;700&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- App Container -->
+  <div class="app-wrapper">
+    
+    <!-- Top App Bar -->
+    <header class="top-bar">
+      <div class="brand-section">
+        <div class="logo-badge">
+          <span class="logo-icon">🗣️</span>
+        </div>
+        <div class="brand-text">
+          <h1>VaaniSetu <span class="tag-badge">वाणीसेतु</span></h1>
+          <span class="state-sub-badge">Jharkhand PALASH MTB-MLE Bridge</span>
+        </div>
+      </div>
+
+      <!-- Edge / Offline Status Badge -->
+      <div class="edge-status-pill" title="Target: <=2GB RAM Android School Tablets">
+        <span class="pulse-dot"></span>
+        <div class="edge-status-text">
+          <span class="status-title"><strong>100% Offline Edge AI</strong></span>
+          <span class="status-sub">Sherpa-ONNX Whisper INT8</span>
+        </div>
+        <span class="ram-badge">≤ 2GB RAM</span>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" data-tab="dialogue-tab">
+        <span class="icon">🎙️</span> Live Dialogue
+      </button>
+      <button class="nav-btn" data-tab="phrases-tab">
+        <span class="icon">📚</span> 30 FLN Phrases
+      </button>
+      <button class="nav-btn" data-tab="flashcards-tab">
+        <span class="icon">🗂️</span> Bilingual Flashcards
+      </button>
+      <button class="nav-btn" data-tab="worksheets-tab">
+        <span class="icon">📄</span> NIPUN Worksheets
+      </button>
+      <button class="nav-btn" data-tab="teacher-tab">
+        <span class="icon">👩‍🏫</span> Teacher Review Loop
+      </button>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- ================= TAB 1: LIVE CLASSROOM VOICE DIALOGUE (Bhavya's Layout) ================= -->
+      <section id="dialogue-tab" class="tab-pane active">
+        <div class="classroom-card">
+          
+          <!-- Component 1: Top Mode & Language Toggle -->
+          <div class="toggle-bar">
+            <div class="role-selector">
+              <button id="teacherModeBtn" class="mode-btn active" onclick="setRole('teacher')">
+                <span class="role-avatar">👨‍🏫</span>
+                <div class="role-meta">
+                  <span class="role-label">Teacher Speaking</span>
+                  <span class="role-lang">Hindi (हिंदी)</span>
+                </div>
+              </button>
+
+              <div class="swap-icon" onclick="swapRoles()" title="Switch Teacher / Student Mode">⇄</div>
+
+              <button id="studentModeBtn" class="mode-btn" onclick="setRole('student')">
+                <span class="role-avatar">🧒</span>
+                <div class="role-meta">
+                  <span class="role-label">Student Speaking</span>
+                  <span class="role-lang">Tribal Mother Tongue</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Target Tribal Language Selector -->
+            <div class="lang-selector-box">
+              <label for="targetLangSelect">Target Language:</label>
+              <select id="targetLangSelect" onchange="onTargetLangChange()">
+                <option value="Santhali">Santhali (संथाली / ᱥᱟᱱᱛᱟᱲᱤ)</option>
+                <option value="Mundari">Mundari (मुंडारी)</option>
+                <option value="Ho">Ho (हो भाषा)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Quick Classroom Prompts Row -->
+          <div class="quick-prompts-bar">
+            <span class="prompts-title">💡 Quick Classroom Phrases:</span>
+            <div class="prompt-chips" id="quickPromptChips">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Component 2: Center Large Circular Mic Button -->
+          <div class="mic-stage">
+            <div class="waveform-container" id="waveformVisualizer">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+            </div>
+
+            <button id="mainMicBtn" class="circular-mic-btn" onclick="toggleRecording()" title="Tap to Speak">
+              <div class="mic-inner-circle">
+                <span class="mic-icon" id="micIconState">🎤</span>
+              </div>
+              <div class="mic-pulse-ring"></div>
+            </button>
+
+            <p class="mic-status-label" id="micStatusText">Tap microphone to speak in classroom</p>
+
+            <!-- Manual Input fallback for typing -->
+            <div class="text-input-box">
+              <input type="text" id="manualTextInput" placeholder="या यहाँ पाठ लिखें (उदा. 'किताब खोलो' या 'गिनती करो')..." />
+              <button class="btn-send" onclick="handleManualSend()">Translate ↵</button>
+            </div>
+          </div>
+
+          <!-- Component 3: Bottom Display Card -->
+          <div class="bottom-display-card" id="translationCard">
+            <div class="card-header">
+              <div class="card-title">
+                <span class="indicator-dot"></span>
+                <span id="displayCardHeader">Classroom Translation Result</span>
+              </div>
+              <div class="latency-pill" id="latencyBadge">
+                ⏱️ Latency: <strong id="latencyValue">18 ms</strong> (< 3s SLA)
+              </div>
+            </div>
+
+            <!-- Card Body: Recognized Input -->
+            <div class="speech-box recognized-box">
+              <div class="speech-meta">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="speaker-icon-badge" id="sourceSpeakerAvatar">👨‍🏫</span>
+                  <span class="lang-tag" id="sourceLangTag">Recognized Teacher Hindi:</span>
+                  <span class="asr-badge" id="asrEngineBadge">🎙️ 100% Offline Edge ASR</span>
+                </div>
+                <button class="listen-speech-btn" id="listenInputBtn" onclick="speakText('source')" title="Listen to spoken input">
+                  🔊 Listen Input
+                </button>
+              </div>
+              <p class="speech-text" id="recognizedText">नमस्ते बच्चों, अपनी-अपनी जगह पर बैठ जाओ।</p>
+            </div>
+
+            <!-- Arrow Divider -->
+            <div class="flow-divider">
+              <div class="divider-line"></div>
+              <span class="ai-badge">⚡ On-Device Neural Edge Translation</span>
+              <div class="divider-line"></div>
+            </div>
+
+            <!-- Card Body: Translated Vernacular Output -->
+            <div class="speech-box translated-box">
+              <div class="speech-meta">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span class="speaker-icon-badge" id="targetSpeakerAvatar">🧒</span>
+                  <span class="lang-tag highlight" id="targetLangTag">Translated Santhali Output:</span>
+                </div>
+                <div class="action-buttons">
+                  <button class="audio-play-btn" id="playAudioBtn" onclick="playCurrentAudio()">
+                    🔊 Read Aloud Santhali Translation
+                  </button>
+                  <button class="icon-btn" onclick="copyTranslation()" title="Copy Text">📋 Copy</button>
+                  <button class="icon-btn flag-btn" onclick="openTeacherCorrectionModal()" title="Teacher Correction / Feedback">✏️ Verify</button>
+                </div>
+              </div>
+
+              <!-- Dual Script Presentation: Ol Chiki + Devanagari -->
+              <div class="vernacular-display">
+                <div class="script-block olchiki-box" id="olChikiContainer">
+                  <div class="script-label">Ol Chiki Script (ᱚᱞ ᱪᱤᱠᱤ) • Authentic Native Script</div>
+                  <p class="olchiki-text" id="translatedOlChiki">ᱡᱚᱦᱟᱨ ᱜᱤᱫᱽᱨᱟᱹ ᱠᱚ, ᱟᱯᱟᱱ ᱟᱯᱟᱱ ᱴᱷᱟᱹᱣ ᱨᱮ ᱫᱩᱲᱩᱵ ᱯᱮ᱾</p>
+                </div>
+
+                <div class="script-block devanagari-box">
+                  <div class="script-label">Devanagari Script (देवनागरी)</div>
+                  <p class="devanagari-text" id="translatedDevanagari">जोहार गिद्रा को, आपन आपन ठंव रे दुड़ुब पे।</p>
+                </div>
+
+                <div class="script-block phonetic-block">
+                  <div class="script-label">Phonetic Classroom Guide</div>
+                  <p class="phonetic-text" id="translatedPhonetic">"Johar gidra ko, aapan aapan thav re durub pe."</p>
+                </div>
+              </div>
+
+              <!-- Confidence Meter & Teacher Verification Flag -->
+              <div class="confidence-footer">
+                <div class="confidence-bar-wrap">
+                  <span class="bar-label">AI Accuracy Confidence:</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" id="confidenceFill" style="width: 98%;"></div>
+                  </div>
+                  <span class="confidence-percent" id="confidenceValue">98% (High)</span>
+                </div>
+
+                <span class="verified-stamp" id="verifiedStamp">✓ NIPUN FLN Verified Phrase</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: 30 FLN CLASSROOM PHRASES ================= -->
+      <section id="phrases-tab" class="tab-pane">
+        <div class="tab-header">
+          <div>
+            <h2>30 High-Priority Primary FLN Sentences</h2>
+            <p class="sub-desc">Aligned with Jharkhand PALASH MTB-MLE & NIPUN Bharat curriculum for 5,000+ tribal primary schools (Hindi ↔ Santhali Devanagari & Ol Chiki, Mundari, Ho).</p>
+          </div>
+          <div class="category-filter-bar">
+            <button class="filter-btn active" onclick="filterPhrases('all')">All (30)</button>
+            <button class="filter-btn" onclick="filterPhrases('Classroom Instruction')">Instructions</button>
+            <button class="filter-btn" onclick="filterPhrases('Numeracy')">Numeracy / Math</button>
+            <button class="filter-btn" onclick="filterPhrases('Literacy')">Literacy</button>
+            <button class="filter-btn" onclick="filterPhrases('Student Response')">Student Responses</button>
+          </div>
+        </div>
+
+        <div class="phrases-grid" id="phrasesGridContainer">
+          <!-- Populated dynamically via JS from fln_dataset.json -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: BILINGUAL FLASHCARDS ================= -->
+      <section id="flashcards-tab" class="tab-pane">
+        <div class="tab-header">
+          <div>
+            <h2>NIPUN Bharat Interactive Bilingual Flashcards</h2>
+            <p class="sub-desc">Visual 3D flip cards designed for tribal primary children to master foundational literacy and numeracy under PALASH MTB-MLE.</p>
+          </div>
+          <div class="category-filter-bar">
+            <button class="filter-btn active" onclick="loadFlashcards('all')">All Cards</button>
+            <button class="filter-btn" onclick="loadFlashcards('Numeracy')">Counting (1-10)</button>
+            <button class="filter-btn" onclick="loadFlashcards('Literacy')">Classroom Words</button>
+          </div>
+        </div>
+
+        <div class="flashcards-grid" id="flashcardsGrid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: NIPUN BHARAT WORKSHEETS ================= -->
+      <section id="worksheets-tab" class="tab-pane">
+        <div class="tab-header">
+          <div>
+            <h2>Curriculum-Aligned Worksheet Generator</h2>
+            <p class="sub-desc">Auto-generate and print bilingual FLN worksheets for Jharkhand PALASH classrooms with zero internet connectivity.</p>
+          </div>
+          <div class="action-bar-right">
+            <button class="btn-primary" onclick="generateWorksheet('Numeracy')">⚡ Generate Numeracy Worksheet</button>
+            <button class="btn-secondary" onclick="generateWorksheet('Literacy')">📖 Generate Literacy Worksheet</button>
+          </div>
+        </div>
+
+        <div class="worksheet-viewer" id="worksheetViewer">
+          <div class="worksheet-paper">
+            <div class="ws-header">
+              <div class="ws-title-group">
+                <h3 id="wsTitle">NIPUN Bharat FLN Numeracy Worksheet</h3>
+                <p id="wsSubTitle">Hindi ↔ Santhali Counting & Word Recognition • Grade 1-2</p>
+              </div>
+              <a id="downloadPdfBtn" href="/worksheets/fln_worksheet_numeracy.pdf" target="_blank" class="download-btn">
+                📥 Download Printable PDF
+              </a>
+            </div>
+
+            <div class="ws-student-meta">
+              <span>विद्यार्थी का नाम (Name): _________________</span>
+              <span>क्रमांक (Roll No): _______</span>
+              <span>दिनांक (Date): __________</span>
+            </div>
+
+            <div class="ws-questions-container" id="wsQuestionsContainer">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 5: TEACHER-IN-THE-LOOP REVIEW ================= -->
+      <section id="teacher-tab" class="tab-pane">
+        <div class="tab-header">
+          <div>
+            <h2>Teacher Review & Verified Phrase Bank</h2>
+            <p class="sub-desc">Teacher-in-the-Loop Human Validation: Teachers validate and correct vernacular translations to continually expand the local offline database.</p>
+          </div>
+          <button class="btn-primary" onclick="openTeacherCorrectionModal()">+ Add Verified Phrase</button>
+        </div>
+
+        <div class="verified-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Hindi Classroom Text</th>
+                <th>Santhali (Devanagari)</th>
+                <th>Ol Chiki Script</th>
+                <th>Confidence</th>
+                <th>Verified By</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="verifiedPhrasesTableBody">
+              <!-- Populated via API -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Teacher Correction Modal -->
+    <div class="modal-overlay" id="correctionModal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Teacher-in-the-Loop Correction</h3>
+          <button class="close-btn" onclick="closeTeacherModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label>Source Hindi Text:</label>
+          <input type="text" id="modalSourceText" class="modal-input" />
+
+          <label>Original AI Translation:</label>
+          <input type="text" id="modalAiText" class="modal-input" readonly />
+
+          <label>Teacher Corrected Vernacular Text:</label>
+          <input type="text" id="modalCorrectedText" class="modal-input" placeholder="संथाली / मुंडारी / हो भाषा में सही वाक्य लिखें..." />
+
+          <label>Notes / Dialect specifics:</label>
+          <input type="text" id="modalNotes" class="modal-input" placeholder="उदा. कोल्हान प्रमंडल या संताल परगना स्थानीय उच्चारण" />
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" onclick="closeTeacherModal()">Cancel</button>
+          <button class="btn-primary" onclick="submitTeacherCorrection()">Save to Offline Verified Bank</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Audio Element -->
+    <audio id="globalAudioPlayer" preload="auto"></audio>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

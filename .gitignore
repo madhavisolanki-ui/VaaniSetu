@@ -1,0 +1,96 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.obj
+*.o
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & API Keys
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Flutter / Dart Build Artifacts
+flutter_app/.dart_tool/
+flutter_app/.flutter-plugins
+flutter_app/.flutter-plugins-dependencies
+flutter_app/.packages
+flutter_app/build/
+.pub-cache/
+.pub/
+
+# Android Build Artifacts
+android/.gradle/
+android/build/
+android/app/build/
+local.properties
+*.keystore
+*.jks
+
+# Logs & Temporary Files
+*.log
+scratch/
+.pytest_cache/
+*.tmp
+temp_*/
+
+# Large Temporary Test Audio (dynamic test runs)
+dynamic_*.wav
+test_*.wav
+temp_speech_*.wav
+
+# AI Model Binaries & Compressed Archives (>50MB exceeds GitHub limits)
+assets/models/
+flutter_app/assets/models/
+*.onnx
+*.tar.bz2
+*.tar.gz
+*.bin
+*.pt
+*.pth
+*.safetensors
+

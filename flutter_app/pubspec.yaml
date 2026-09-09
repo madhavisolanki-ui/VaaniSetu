@@ -1,0 +1,31 @@
+﻿name: vaanisetu
+description: "AI-Powered Vernacular Pedagogy and Real-Time Translation Tool for Mother Tongue-based Primary Education (SIH26042)"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  record: ^5.1.2
+  path_provider: ^2.1.2
+  audioplayers: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/models/asr/
+    - assets/audio/santhali/
+    - assets/fonts/
+  fonts:
+    - family: OlChiki
+      fonts:
+        - asset: assets/fonts/NotoSansOlChiki-Regular.ttf
