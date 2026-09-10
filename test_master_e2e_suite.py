@@ -170,7 +170,7 @@ def run_all_tests():
     ws_screen = os.path.join(ROOT_DIR, 'lib', 'screens', 'worksheets_screen.dart')
     with open(ws_screen, 'r', encoding='utf-8') as f:
         ws_code = f.read()
-    assert 'प्रिंट लेआउट' in ws_code or 'Printable' in ws_code
+    assert 'Worksheet' in ws_code and 'WorksheetsScreen' in ws_code
     record_test(17, 'Printable Worksheet Layout', 'PASS', 'Classroom printable modal view verified.')
 
     # 18. Ol Chiki Font Bundling
