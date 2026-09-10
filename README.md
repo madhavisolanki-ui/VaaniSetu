@@ -1,178 +1,211 @@
 # VaaniSetu (वाणीसेतु) 🗣️
 
 > **AI-Powered Vernacular Pedagogy and Real-Time Translation Tool for Mother Tongue-Based Primary Education**  
-> **Smart India Hackathon 2026** | **Problem Statement ID: 26042**  
-> **Theme:** Smart Education | **Category:** Software  
-> **Target Department:** Department of Higher & Technical Education, Government of Jharkhand  
+> **Target Initiative:** Government of Jharkhand — Department of Higher & Technical Education  
 > **Flagship Programme:** PALASH Mother Tongue-Based Multilingual Education (MTB-MLE)  
+> **Problem Statement ID:** 26042  
 
 ---
 
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115-009688.svg?style=flat&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-blue.svg?style=flat&logo=python)](https://python.org)
 [![Edge AI](https://img.shields.io/badge/AI%20Inference-100%25%20Offline%20Edge-success.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
-[![RAM Target](https://img.shields.io/badge/Target%20Device-%E2%89%A4%202GB%20RAM%20Android%20Tablets-orange.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
+[![RAM Target](https://img.shields.io/badge/Hardware%20Target-%E2%89%A4%202GB%20RAM%20Android%20Tablets-orange.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
 [![Languages](https://img.shields.io/badge/Languages-Hindi%20%7C%20Santhali%20%7C%20Mundari%20%7C%20Ho-purple.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
 [![Scripts](https://img.shields.io/badge/Dual%20Script-Devanagari%20%2B%20Ol%20Chiki%20%E1%B1%A5%E1%B1%9A%20%E1%B1%A6%E1%B1%A4%E1%B1%9F-red.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
-[![SLA](https://img.shields.io/badge/Latency-%3C%203s%20SLA%20(Avg%2018ms)-brightgreen.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
+[![Latency](https://img.shields.io/badge/Latency-%3C%203s%20SLA%20(Avg%2018ms)-brightgreen.svg?style=flat)](https://github.com/madhavisolanki-ui/VaaniSetu)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 📌 Problem Context & Background
+## 📌 Problem Overview & State Context
 
-In Jharkhand's **5,000+ tribal-area primary schools**, the **PALASH Mother Tongue-Based Multilingual Education (MTB-MLE)** programme has proven that children achieve foundational literacy and numeracy far quicker when instructed in their mother tongue. However, scaling this initiative faces a critical operational bottleneck:
+In Jharkhand's **5,000+ tribal-area primary schools**, the **PALASH Mother Tongue-Based Multilingual Education (MTB-MLE)** programme has demonstrated that tribal children achieve foundational literacy and numeracy far more effectively when instructed in their mother tongue. However, scaling this vision faces severe ground-level challenges:
 
-- **Linguistic Divide:** The vast majority of appointed primary school teachers are trained solely in Hindi medium and are not proficient in tribal languages (**Santhali**, **Mundari**, and **Ho**).
-- **Zero Digital NLP Resources:** Mainstream translation services (Google Translate, Microsoft Translator, Bhashini) do not cater to low-resource tribal languages in offline school conditions.
-- **Connectivity & Hardware Constraints:** Tribal schools frequently operate in remote regions with **zero cellular connectivity** and only basic low-cost Android tablets ($\le$ 2GB RAM).
-- **Pedagogical Gap:** Existing generic translators lack classroom-grade vocabulary, pedagogical alignment with **NIPUN Bharat**, dual-script rendering, and educational learning aids.
+1. **Linguistic Divide:** The vast majority of primary school teachers are trained in Hindi medium and lack proficiency in local tribal languages (**Santhali**, **Mundari**, and **Ho**).
+2. **Zero Digital NLP Resources:** Mainstream translation engines (Google Translate, Microsoft Translator, Bhashini) focus primarily on 22 scheduled languages, leaving tribal and low-resource languages unsupported in offline classroom settings.
+3. **Severe Hardware & Connectivity Limits:** Tribal primary schools are frequently situated in remote areas with **zero cellular connectivity** and equipped only with low-cost Android tablets ($\le$ 2GB RAM).
+4. **Pedagogical Disconnect:** Generic translators do not offer classroom-grade foundational vocabulary, dual-script support, printable bilingual worksheets, or NIPUN Bharat learning activities.
 
-**VaaniSetu (वाणीसेतु)** is an edge-native, bidirectional translation and vernacular pedagogical bridge built specifically to eliminate this language barrier between teachers and tribal primary students in real-time.
+**VaaniSetu (वाणीसेतु)** is an edge-native, offline-first pedagogical tool that bridges the communication gap between Hindi-speaking teachers and tribal primary students through real-time bidirectional translation, authentic speech playback, and curriculum-aligned learning aids.
 
 ---
 
-## 🌟 Core Highlights & Architectural Pillars
+## 🖥️ User Interface & System Layout
 
 ```
-                      +------------------------------------------+
-                      |         VaaniSetu Core Engine            |
-                      +------------------------------------------+
-                                           |
-            +------------------------------+------------------------------+
-            |                                                             |
-            v                                                             v
-+------------------------+                                   +------------------------+
-| 👨‍🏫 Teacher Mode       |                                   | 🧒 Student Mode        |
-| Input: Hindi Speech    |                                   | Input: Tribal Speech   |
-| Output: Tribal Speech  |                                   | Output: Hindi Speech   |
-| (Santhali/Mundari/Ho)  |                                   | (For Teacher Recipient)|
-+------------------------+                                   +------------------------+
-            |                                                             |
-            +------------------------------+------------------------------+
-                                           |
-                                           v
-            +-------------------------------------------------------------+
-            |                 100% Offline Edge Stack                     |
-            | - Sherpa-ONNX Whisper INT8 Quantized ASR (RAM < 250MB)      |
-            | - Bi-Directional NLP Engine with Reverse Tribal Vocab       |
-            | - 120+ Authentic Audio Dataset (Hindi + 3 Tribal Tongues)   |
-            | - Dual Script Engine (Devanagari + Ol Chiki ᱚᱞ ᱪᱤᱠᱤ)        |
-            | - Dynamic In-Memory TTS Voice Synthesizer                   |
-            +-------------------------------------------------------------+
-                                           |
-                                           v
-            +-------------------------------------------------------------+
-            |               NIPUN Bharat Pedagogical Kit                  |
-            | - 30 Core FLN Classroom Curriculum Phrases                 |
-            | - 3D Interactive Bilingual Flashcards                       |
-            | - Auto-Generated Printable Bilingual Worksheets (PDF)       |
-            | - Teacher-in-the-Loop Human Validation Feedback Loop        |
-            +-------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+|  🗣️ VaaniSetu वाणीसेतु      [100% Offline Edge AI • Sherpa-ONNX Whisper INT8] [≤2GB] |
+|     Jharkhand PALASH MTB-MLE Bridge                                                   |
++---------------------------------------------------------------------------------------+
+|  [1. Live Translation]  [2. 30 FLN Phrases]  [3. Flashcards]  [4. Worksheets]  [5. Review]|
++---------------------------------------------------------------------------------------+
+|                                                                                       |
+|   Role:  (•) 👨‍🏫 Teacher Mode (Hindi -> Tribal)    ( ) 🧒 Student Mode (Tribal -> Hindi)|
+|   Target Language: [ Santhali (संथाली / ᱥᱟᱱᱛᱟᱲᱤ)  ▼ ]                                |
+|                                                                                       |
+|   💡 Quick Phrases: [👋 जोहार] [📖 किताब निकालो] [🔢 गिनती करें] [💧 पानी] [✅ बहुत अच्छे]   |
+|                                                                                       |
+|                                     ( 🎤 )                                            |
+|                          [ Tap Microphone to Speak ]                                  |
+|               یا यहाँ लिखें: [ अपनी भाषा की किताब निकालो... ] [ Translate ↵ ]          |
+|                                                                                       |
++---------------------------------------------------------------------------------------+
+|  TRANSLATION RESULT                             ⏱️ Latency: 18 ms (< 3000ms SLA Target)|
++---------------------------------------------------------------------------------------+
+|  👨‍🏫 Spoken Hindi Input:                                        [ 🔊 Listen Input ]   |
+|  "अपनी भाषा की किताब निकालो।"                                                         |
+|  -----------------------------------------------------------------------------------  |
+|  🧒 Translated Santhali Output:                   [ 🔊 Read Aloud Santhali Translation ]|
+|                                                   [ 📋 Copy ]   [ ✏️ Verify / Flag ]    |
+|                                                                                       |
+|  [ Ol Chiki Script (Authentic) ]                                                      |
+|  ᱟᱯᱟᱱᱟᱜ ᱯᱟᱨᱥᱤ ᱯᱩᱛᱷᱤ ᱚᱰᱚᱠ ᱯᱮ᱾                                                          |
+|                                                                                       |
+|  [ Devanagari Script ]                                                                |
+|  आपानाः पारसी पुथी ओडोक पे।                                                           |
+|                                                                                       |
+|  [ Phonetic Classroom Guide ]                                                         |
+|  "Aapanah parsi puthi odok pe."                                                       |
+|                                                                                       |
+|  Model Confidence: [████████████████████ 96%] (High)  • 🎙️ 100% Offline Edge Engine   |
++---------------------------------------------------------------------------------------+
 ```
 
-### 1. Bidirectional Voice Loop with Auto-Read-Aloud
-- **Teacher Mode:** Teacher speaks in Hindi $\to$ system translates and **reads aloud in the student's mother tongue** (Santhali, Mundari, or Ho).
-- **Student Mode:** Tribal student speaks in their mother tongue $\to$ system translates and **reads aloud in Hindi** for the teacher to immediately comprehend.
-- **Clickable Audio Listeners:** Both source speech (`🔊 Listen Input`) and translated speech (`🔊 Read Aloud Translation`) can be replayed at any time.
+---
 
-### 2. Authentic Dual-Script Presentation (Ol Chiki + Devanagari)
-- Santhali is displayed in both its native **Ol Chiki script (ᱚᱞ ᱪᱤᱠᱤ)** (using Unicode `Noto Sans Ol Chiki`) and **Devanagari script**, accompanied by phonetic pronunciation guides.
-- Mundari and Ho are rendered in standard Devanagari with authentic localized phonology.
+## 🌟 5 Core Modules
 
-### 3. Strict Offline Edge Execution ($\le$ 2GB RAM Devices)
-- Operates **100% offline** without any internet connection.
-- ASR utilizes a quantized **Whisper Tiny INT8** model via Sherpa-ONNX, keeping total device memory footprint **under 250 MB RAM**.
-- Translation latency averages **18.5 ms** (well below the 3,000 ms hackathon SLA).
+### 1. Real-Time Classroom Translation (Real-Time Voice Loop)
+- **Teacher Mode (Hindi $\to$ Tribal):** Teacher speaks Hindi instructions $\to$ system translates and **reads aloud in Santhali, Mundari, or Ho** for the child.
+- **Student Mode (Tribal $\to$ Hindi):** Student speaks in their mother tongue $\to$ system translates and **reads aloud in Hindi** so the teacher immediately comprehends the student's answer.
+- **Bidirectional Audio Controls:** Prominent, glowing `🔊 Read Aloud Translation` and `🔊 Listen Input` buttons enable instant replay of both original and translated audio.
 
-### 4. 120+ Authentic Native Audio Dataset
-- 30 curated Foundational Literacy and Numeracy (FLN) classroom expressions recorded/synthesized across all four target languages:
-  - 30 Santhali Audio Clips (`santhali_1.wav` – `santhali_30.wav`)
-  - 30 Mundari Audio Clips (`mundari_1.wav` – `mundari_30.wav`)
-  - 30 Ho Audio Clips (`ho_1.wav` – `ho_30.wav`)
-  - 30 Hindi Audio Clips (`hindi_1.wav` – `hindi_30.wav`)
+### 2. 30 FLN Master Curriculum Expressions
+- 30 standardized foundational literacy and numeracy phrases aligned with Grade 1–2 classroom instruction.
+- **Multi-lingual Audio Player:** Direct playback buttons for all four languages on every card (`▶ Santhali`, `▶ Mundari`, `▶ Ho`, `▶ Hindi`).
 
-### 5. NEP 2020 & NIPUN Bharat Pedagogical Suite
-- **Interactive Flashcards:** 22+ interactive 3D flip flashcards covering numbers, animals, classroom objects, and family members with audio pronunciation.
-- **Printable Bilingual Worksheets:** Dynamic ReportLab PDF worksheet generator with student name, roll number, and bilingual activity exercises.
-- **Teacher Verification Loop:** Teachers can flag or correct translations; confirmed translations are immediately saved to the offline phrase bank.
+### 3. Interactive Bilingual 3D Flashcards
+- 22+ interactive 3D flip cards covering numbers, colors, body parts, classroom objects, animals, and common verbs.
+- Front shows visual emoji icon, Hindi word, and English definition; flip side reveals authentic tribal script, phonetic guide, and audio pronunciation.
+
+### 4. Curriculum-Aligned Worksheet Generator (Printable PDF)
+- Generates high-resolution, print-ready bilingual worksheets for offline classroom use.
+- Automatically lays out student name, roll number, date, bilingual vocabulary matching questions, numeracy counting grids, and teacher signature blocks.
+
+### 5. Teacher-in-the-Loop Verification Portal
+- Allows teachers to verify, edit, or flag translation outputs directly on device.
+- Verified corrections are saved directly to the local SQLite database and persistent JSON dataset, continuously improving classroom accuracy without internet.
 
 ---
 
-## 📊 Compliance Matrix (Problem Statement 26042)
+## 🌐 Linguistic & Script Support
 
-| Clause # | Official Requirement | Implementation in VaaniSetu | Status |
-| :---: | :--- | :--- | :---: |
-| **C1** | **Target Scope:** Jharkhand PALASH MTB-MLE across 5,000+ schools | Native alignment with PALASH Grade 1–2 competencies | **100% PASS** |
-| **C2** | **Tribal Languages:** Santhali, Mundari, and Ho | Full tri-language support with bidirectional conversion | **100% PASS** |
-| **C3** | **Dual-Script Santhali:** Devanagari & Ol Chiki representation | Bidirectional transliteration with Noto Sans Ol Chiki | **100% PASS** |
-| **C4** | **Teacher Mode:** Hindi $\to$ Tribal vernacular translation | Normalized semantic search & vocabulary composition | **100% PASS** |
-| **C5** | **Student Mode:** Tribal $\to$ Hindi translation | Reverse vocabulary matching and speech synthesis | **100% PASS** |
-| **C6** | **Latency:** Sub-3-second latency target | P50 edge latency: **18.5 ms** (77%+ SLA headroom) | **100% PASS** |
-| **C7** | **Target Audio:** Clear tribal audio output | 120+ 16kHz audio dataset + dynamic edge synthesizer | **100% PASS** |
-| **C8** | **Worksheets:** Printable bilingual learning materials | Instant PDF generator for NIPUN Bharat worksheets | **100% PASS** |
-| **C9** | **Visual Aids:** Bilingual flashcards for Grade 1–3 | 3D interactive flashcards with audio pronunciation | **100% PASS** |
-| **C10** | **Offline Edge:** $\le$ 2GB RAM Android tablets with zero internet | SQLite offline store + Whisper INT8 (zero cloud calls) | **100% PASS** |
-| **C11** | **Human-in-the-Loop:** Teacher review & correction mechanism | In-app correction modal updating local phrase database | **100% PASS** |
-| **C12** | **Deliverables:** Working software + GitHub repo + APK | Full Web Edge server (`run_demo.py`) + Flutter client | **100% PASS** |
+| Language | Language Code | Scripts Supported | Phonetic Guide | Audio Assets |
+| :--- | :---: | :--- | :---: | :---: |
+| **Hindi (हिंदी)** | `hin` | Devanagari | Standard Hindi | 30 Classroom Clips |
+| **Santhali (संथाली)** | `sat` | **Ol Chiki (ᱚᱞ ᱪᱤᱠᱤ)** + Devanagari | Included | 30 Native Clips |
+| **Mundari (मुंडारी)** | `unr` | Devanagari | Included | 30 Native Clips |
+| **Ho (हो)** | `hoc` | Devanagari | Included | 30 Native Clips |
 
 ---
 
-## 🏗️ Architecture & Technology Stack
+## 🏛️ System Architecture
 
-| Component | Technology | Rationale & Constraint |
-| :--- | :--- | :--- |
-| **Backend Framework** | FastAPI (Python 3.11+) | Ultra-low latency asynchronous API serving |
-| **ASR Engine** | Sherpa-ONNX Whisper Tiny INT8 | Zero cloud dependency, $<$220 MB RAM footprint |
-| **Database** | SQLite 3 (WAL mode) | Self-contained, lightweight offline edge storage |
-| **Speech Audio** | 16kHz Mono PCM WAV | Optimized for low-spec tablet speakers |
-| **Web Frontend** | Vanilla HTML5 / CSS3 / ES6+ | Zero external framework overhead, instant render |
-| **Mobile App** | Flutter 3.x / Dart | Cross-platform APK for Android school tablets |
-| **PDF Generation** | ReportLab | Generates printable worksheets dynamically offline |
-| **Typography** | Noto Sans Ol Chiki, Hind, Plus Jakarta | Authentic tribal Unicode rendering |
+```
+                                  +-----------------------+
+                                  |   Tablet Microphone   |
+                                  +-----------------------+
+                                              |
+                                              v
+                              +-------------------------------+
+                              |    Offline Voice Ingestion    |
+                              |   Web Speech API / Sherpa-ONNX|
+                              +-------------------------------+
+                                              |
+                                              v
+                              +-------------------------------+
+                              |    FastAPI Edge Backend       |
+                              |    (Port 8000 / Localhost)    |
+                              +-------------------------------+
+                                 /            |            \
+                                /             |             \
+                               v              v              v
+               +------------------+  +------------------+  +------------------+
+               |  NLP Translation |  | Offline Database |  |  Audio & Speech  |
+               |  - FLN Matcher   |  | - SQLite WAL     |  | - 120+ Native WAV|
+               |  - Reverse Vocab |  | - 30 Core FLN    |  | - In-Memory Wave |
+               |  - Ol Chiki Conv |  | - Teacher Review |  |   Synthesizer    |
+               +------------------+  +------------------+  +------------------+
+                                \             |             /
+                                 \            |            /
+                                  v           v           v
+                              +-------------------------------+
+                              |    Real-Time Tablet UI        |
+                              | - Dual-Script Typography      |
+                              | - Dynamic Read-Aloud Audio    |
+                              | - Latency & Confidence Meter  |
+                              +-------------------------------+
+```
 
 ---
 
-## 📂 Project Directory Structure
+## 📊 Benchmark & Performance Metrics
+
+Tested on standard low-cost Android school tablets ($\le$ 2GB RAM, Quad-Core 1.8GHz, Android 9+):
+
+| Performance Metric | Target SLA | VaaniSetu Benchmark | Status |
+| :--- | :---: | :---: | :---: |
+| **Curated FLN Lookup Latency** | $< 3,000\text{ ms}$ | **$1.8\text{ ms}$** | 🚀 99.9% Headroom |
+| **Reverse Vocab Composition Latency** | $< 3,000\text{ ms}$ | **$14.2\text{ ms}$** | 🚀 99.5% Headroom |
+| **On-Device Whisper INT8 Inference** | $< 3,000\text{ ms}$ | **$687\text{ ms}$** | 🚀 77.1% Headroom |
+| **Total System RAM Footprint** | $\le 2,048\text{ MB}$ | **$184\text{ MB}$** | 🚀 91% Headroom |
+| **Storage Footprint (Code + Audio)** | $\le 500\text{ MB}$ | **$28\text{ MB}$** | 🚀 Ultra-lightweight |
+| **Network Dependency** | Zero Cloud | **$100\%\text{ Offline}$** | 🚀 Airplane Mode Ready |
+
+---
+
+## 📂 Repository File Structure
 
 ```
 VaaniSetu/
 ├── assets/
-│   ├── audio/                    # 120+ Authentic Audio Dataset (WAV)
-│   │   ├── hindi_*.wav           # 30 Hindi classroom audio files
-│   │   ├── mundari_*.wav         # 30 Mundari classroom audio files
-│   │   ├── ho_*.wav              # 30 Ho classroom audio files
-│   │   └── santhali/             # 30 Santhali classroom audio files
-│   ├── fonts/                    # Noto Sans Ol Chiki Unicode TTF font
-│   └── models/asr/               # On-device Whisper INT8 ASR models
+│   ├── audio/                    # 120+ Authentic Classroom Audio Files
+│   │   ├── hindi_1.wav..30.wav   # Hindi classroom expressions
+│   │   ├── mundari_1.wav..30.wav # Mundari classroom expressions
+│   │   ├── ho_1.wav..30.wav      # Ho classroom expressions
+│   │   └── santhali/             # Santhali audio expressions
+│   ├── fonts/                    # Noto Sans Ol Chiki Unicode Font
+│   └── models/asr/               # Quantized Whisper INT8 ASR Model directory
 ├── backend/
 │   ├── app/
-│   │   ├── main.py               # FastAPI application & REST routing
-│   │   ├── nlp_engine.py         # Vernacular translation & Ol Chiki engine
-│   │   ├── speech_engine.py      # Audio playback & fallback synthesis
-│   │   ├── fln_generator.py      # NIPUN Bharat curriculum & flashcards
-│   │   ├── pdf_generator.py      # Dynamic PDF worksheet generator
-│   │   ├── database.py           # SQLite local connection
-│   │   ├── models.py             # SQLAlchemy models
-│   │   └── schemas.py            # Pydantic validation schemas
+│   │   ├── main.py               # FastAPI server application & API routing
+│   │   ├── nlp_engine.py         # Bidirectional translation & Ol Chiki transliterator
+│   │   ├── speech_engine.py      # Audio stream manager & dynamic TTS synthesizer
+│   │   ├── fln_generator.py      # 30 FLN phrases, flashcards & classroom prompts
+│   │   ├── pdf_generator.py      # Printable bilingual worksheet PDF builder
+│   │   ├── database.py           # SQLite connection & WAL mode config
+│   │   ├── models.py             # SQLAlchemy models (Verified phrases, review logs)
+│   │   └── schemas.py            # Pydantic request/response schemas
 │   └── requirements.txt          # Python dependencies
 ├── data/
-│   ├── fln_dataset.json          # 30 Core FLN bilingual curriculum phrases
-│   ├── audios/                   # Primary audio repository
-│   └── worksheets/               # Pre-rendered bilingual worksheets
+│   ├── fln_dataset.json          # Master 30 FLN bilingual curriculum dataset
+│   ├── audios/                   # Primary audio dataset (120+ WAV files)
+│   └── worksheets/               # Generated sample worksheets (PDF)
 ├── frontend/
-│   ├── index.html                # SIH 2026 Grand Finale responsive UI
-│   ├── css/style.css             # High-contrast, responsive tablet styles
-│   └── js/app.js                 # Classroom audio controller & state manager
-├── flutter_app/                  # Native Android/Tablet Flutter application
-│   ├── lib/main.dart             # Flutter entrypoint
-│   └── pubspec.yaml              # Flutter dependencies (audioplayers, etc.)
+│   ├── index.html                # Tablet-optimized responsive HTML5 interface
+│   ├── css/style.css             # High-contrast, mobile-first CSS styles
+│   └── js/app.js                 # Classroom audio controller & offline state manager
+├── flutter_app/                  # Native Android / Tablet Flutter application
+│   ├── lib/main.dart             # Flutter app entrypoint
+│   └── pubspec.yaml              # Flutter dependencies (audioplayers, record)
 ├── scripts/
-│   └── download_asr_model.py     # Auto-setup utility for quantized ASR models
-├── PALASH_SIH26042_COMPLIANCE.md # Official SIH26042 requirement audit
-├── run_demo.py                   # 1-Click launcher (Server + Auto-Browser)
-├── start_prototype.bat           # Windows 1-Click batch script
-├── .gitignore                    # Production-ready git ignore configuration
-└── README.md                     # Comprehensive documentation
+│   └── download_asr_model.py     # Utility to fetch on-device Whisper models
+├── PALASH_SIH26042_COMPLIANCE.md # Official Problem 26042 clause evaluation
+├── run_demo.py                   # 1-Click launcher (Starts server + opens browser)
+├── start_prototype.bat           # Windows 1-Click batch launcher
+├── .gitignore                    # Clean git ignore configuration
+└── README.md                     # Comprehensive project documentation
 ```
 
 ---
@@ -180,8 +213,8 @@ VaaniSetu/
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- **Python 3.10 to 3.13** installed on your system.
-- Git installed.
+- **Python 3.10, 3.11, 3.12, or 3.13** installed.
+- Modern Web Browser (Google Chrome, Microsoft Edge, or Mozilla Firefox).
 
 ### 1. Clone the Repository
 ```bash
@@ -194,28 +227,26 @@ cd VaaniSetu
 pip install -r backend/requirements.txt
 ```
 
-### 3. (Optional) Fetch Quantized Whisper ASR Model
-To run real microphone speech recognition locally:
+### 3. (Optional) Download Offline Whisper ASR Models
+For live on-device speech-to-text inference with physical microphones:
 ```bash
 python scripts/download_asr_model.py --fetch
 ```
-*(The system comes with full simulated VAD & classroom speech phrases out of the box even without downloading models).*
+*(The system works out of the box with instant simulated VAD classroom phrases even without downloading model weights).*
 
-### 4. Run the Application
-Launch the entire system with one command:
+### 4. Launch the System (1-Click)
 ```bash
 python run_demo.py
 ```
-This automatically:
-1. Initializes the SQLite offline database and seeds the 30 FLN curriculum phrases.
-2. Mounts all 120+ audio files and static frontend assets.
-3. Launches your default browser to `http://127.0.0.1:8000`.
+- Starts the FastAPI backend at `http://127.0.0.1:8000`.
+- Seeds the 30 FLN classroom phrases into local SQLite.
+- Automatically opens your default web browser to the classroom interface.
 
 ---
 
-## 📱 Running the Android / Flutter Tablet App
+## 📱 Building the Native Android Tablet App (Flutter)
 
-If deploying directly to an Android school tablet:
+To run natively on an Android school tablet:
 
 ```bash
 cd flutter_app
@@ -223,47 +254,38 @@ flutter pub get
 flutter run
 ```
 
-To build a standalone production APK:
+To compile a release APK for distribution across tribal school tablets:
 ```bash
 flutter build apk --release
 ```
+The resulting APK will be located at:
+`flutter_app/build/app/outputs/flutter-apk/app-release.apk`
 
 ---
 
-## 🔌 API Endpoints Reference
+## 🔌 API Documentation
 
-| Method | Endpoint | Description |
+When the application is running, interactive Swagger API docs are accessible at `http://127.0.0.1:8000/docs`.
+
+| HTTP Method | Path | Description |
 | :--- | :--- | :--- |
-| `POST` | `/api/translate` | Bidirectional text translation with audio routing and confidence score |
-| `GET` | `/api/fln/phrases` | Retrieves all 30 foundational literacy and numeracy classroom phrases |
-| `GET` | `/api/system/status` | System health check, active edge mode, and average latency metrics |
-| `POST` | `/api/worksheets/generate` | Generates a printable bilingual NIPUN Bharat worksheet in PDF format |
-| `POST` | `/api/feedback/submit` | Submits teacher corrections to the local offline phrase bank |
+| `POST` | `/api/translate` | Bidirectional translation (Hindi $\leftrightarrow$ Tribal) with audio routing |
+| `GET` | `/api/fln/phrases` | Returns 30 verified FLN phrases across all 4 languages |
+| `GET` | `/api/system/status` | System health check, active edge mode, and SLA latency stats |
+| `POST` | `/api/worksheets/generate` | Generates a downloadable bilingual worksheet in PDF format |
+| `POST` | `/api/feedback/submit` | Submits teacher corrections to the local offline database |
 | `GET` | `/audios/{filename}` | Serves 16kHz audio clips for zero-latency classroom playback |
 
 ---
 
-## 🧪 Benchmark & Performance Results
+## 📜 National Policy Alignment
 
-Evaluated on low-cost hardware conforming to Jharkhand primary school tablet standards (Quad-Core 1.8 GHz, 2GB LPDDR3 RAM):
-
-- **Curated FLN Lookup:** `1.8 ms` average latency.
-- **Vocabulary Composition:** `14.2 ms` average latency.
-- **Quantized Whisper INT8 Inference:** `687 ms` (well under the 3,000 ms SLA).
-- **RAM Footprint (Entire Server):** `184 MB` memory usage.
-- **Zero Internet Requirement:** `100% Functional` in airplane mode.
+- **National Education Policy (NEP 2020) Clause 4.11:** Mandates that primary education until at least Grade 5 should be delivered in the child's mother tongue.
+- **NIPUN Bharat Mission:** Target-oriented foundational literacy and numeracy acquisition for children in Grades 1 to 3.
+- **Jharkhand PALASH Initiative:** Expansion of mother tongue-based multilingual instruction across Santhal Pargana, Kolhan, and Chota Nagpur divisions.
 
 ---
 
-## 📜 Alignment with National Policies
+## 📄 License
 
-- **National Education Policy (NEP 2020) Clause 4.11:** Mandates that wherever possible, the medium of instruction until at least Grade 5 should be the child's mother tongue/local language.
-- **NIPUN Bharat Mission:** Guarantees universal acquisition of foundational literacy and numeracy for Grade 1–3 learners.
-- **Jharkhand PALASH Initiative:** Expands mother tongue-based multilingual education across Santhal Pargana, Kolhan, and Chota Nagpur tribal regions.
-
----
-
-## 📄 License & Attribution
-
-Developed with ❤️ for **Smart India Hackathon 2026** (Problem Statement: `26042`) by Team **Code Catalysts** under the **MIT License**.
-All tribal language datasets, Ol Chiki font files, and educational materials are curated strictly for non-commercial educational advancement.
+This project is licensed under the **MIT License**. All tribal language pedagogical assets, Ol Chiki font files, and audio recordings are curated strictly for non-commercial educational advancement.
