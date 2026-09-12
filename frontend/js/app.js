@@ -1,3 +1,4 @@
+
 // ================= Global State =================
 let currentRole = "teacher"; // "teacher" (Hindi -> Tribal) or "student" (Tribal -> Hindi)
 let currentTargetLang = "Santhali"; // Santhali, Mundari, Ho
