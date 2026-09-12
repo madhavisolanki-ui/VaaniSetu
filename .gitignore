@@ -93,8 +93,3 @@ flutter_app/assets/models/
 *.pt
 *.pth
 *.safetensors
-
-# Nested local clone
-VaaniSetu/
-
-
