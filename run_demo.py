@@ -12,10 +12,11 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-import uvicorn
+import uvicorn  # type: ignore[import-not-found]
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(BASE_DIR, "backend"))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 def find_available_port(start_port):
     """Return the first available localhost port starting at start_port."""
@@ -50,7 +51,7 @@ def main():
     import threading
     threading.Thread(target=open_browser, daemon=True).start()
 
-    from app.main import app
+    from backend.app.main import app
     uvicorn.run(app, host="127.0.0.1", port=port, log_level="info")
 
 if __name__ == "__main__":
