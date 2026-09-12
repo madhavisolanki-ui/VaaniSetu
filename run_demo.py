@@ -37,8 +37,6 @@ def main():
     print("         Problem Statement ID: SIH26042 | Team Code Catalysts")
     print("=" * 70)
     print(f"[*] Starting VaaniSetu Offline Edge AI Server on {server_url} ...")
-    print("[*] Bhoomi (Member 1) Dataset: 30 FLN Sentences & Audios Loaded")
-    print("[*] Bhavya (Member 6) UI: Single-Screen Layout & Multi-Module Hub Active")
     print("[*] Edge Mode: <= 2GB RAM Offline Mode Active")
     print("=" * 70)
 
