@@ -28,7 +28,7 @@ def find_available_port(start_port):
     raise RuntimeError(f"No available localhost port found near {start_port}")
 
 def main():
-    requested_port = int(os.environ.get("VAANISETU_PORT", "8000"))
+    requested_port = int(os.environ.get("VAANISETU_PORT", "8001"))
     port = find_available_port(requested_port)
     server_url = f"http://127.0.0.1:{port}"
 
